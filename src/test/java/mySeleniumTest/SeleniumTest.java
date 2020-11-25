@@ -41,7 +41,7 @@ public class SeleniumTest {
     }
 
     @Test
-    void myFirstTest() throws InterruptedException {
+    void the1stButtonTest() throws InterruptedException {
    //     FirefoxDriver driver = new FirefoxDriver();
         driver.get("https://ultimateqa.com/automation");
         List<WebElement> buttonsOnTHePage = driver.findElements(new By.ByCssSelector("div.et_pb_text_inner a"));
@@ -54,6 +54,57 @@ public class SeleniumTest {
         assertThat(skillsLabel.getText()).isEqualTo("Skills Improved:");
     }
 
+    @Test
+    void the2ndButtonTest () throws InterruptedException {
+        driver.get("https://ultimateqa.com/automation");
+        List<WebElement> buttonsOnTHePage = driver.findElements(new By.ByCssSelector("div.et_pb_text_inner a"));
+        assertThat(buttonsOnTHePage.size()).isEqualTo(7);
+        WebElement theSecondButton = buttonsOnTHePage.get(1);
+        theSecondButton.click();
+        wait.until(visibilityOfElementLocated(By.xpath("//*[@id=\"et-boc\"]/div/div/div[1]/div/div[1]/div[1]/div")));
+        WebElement landingPage = driver.findElement(By.xpath("//*[@id=\"et-boc\"]/div/div/div[1]/div/div[1]/div[1]/div/h1"));
+        assertThat(landingPage.isDisplayed()).isTrue();
+        assertThat(landingPage.getText()).isEqualTo("Learn to Code Websites, Apps & Games");
+    }
+
+    @Test
+    void the3rdButtonTest () throws InterruptedException {
+        driver.get("https://ultimateqa.com/automation");
+        List<WebElement> buttonsOnTHePage = driver.findElements(new By.ByCssSelector("div.et_pb_text_inner a"));
+        assertThat(buttonsOnTHePage.size()).isEqualTo(7);
+        WebElement theThirdButton = buttonsOnTHePage.get(2);
+        theThirdButton.click();
+        wait.until(visibilityOfElementLocated(By.xpath("//*[@id=\"et-boc\"]/div/div/div[1]/div[1]/div/div/div")));
+        WebElement landingPage = driver.findElement(By.xpath("//*[@id=\"et-boc\"]/div/div/div[1]/div[1]/div/div/div/h1"));
+        assertThat(landingPage.isDisplayed()).isTrue();
+        assertThat(landingPage.getText()).isEqualTo("Pick a Plan that Works for Your Business Model");
+    }
+
+    @Test
+    void the4thButtonTest () throws InterruptedException {
+        driver.get("https://ultimateqa.com/automation");
+        List<WebElement> buttonsOnTHePage = driver.findElements(new By.ByCssSelector("div.et_pb_text_inner a"));
+        assertThat(buttonsOnTHePage.size()).isEqualTo(7);
+        WebElement theFourthButton = buttonsOnTHePage.get(3);
+        theFourthButton.click();
+        wait.until(visibilityOfElementLocated(By.className("entry-content")));
+        WebElement landingPage = driver.findElement(By.id("et_pb_contact_name_0"));
+        assertThat(landingPage.isDisplayed()).isTrue();
+        assertThat(landingPage.getTagName()).isEqualTo("input");
+    }
+
+    @Test
+    void the5thButtonTest () throws InterruptedException {
+        driver.get("https://ultimateqa.com/automation");
+        List<WebElement> buttonsOnTHePage = driver.findElements(new By.ByCssSelector("div.et_pb_text_inner a"));
+        assertThat(buttonsOnTHePage.size()).isEqualTo(7);
+        WebElement theFifthButton = buttonsOnTHePage.get(4);
+        theFifthButton.click();
+        wait.until(visibilityOfElementLocated(By.id("left-area")));
+        WebElement landingPage = driver.findElement(By.id("left-area"));
+        assertThat(landingPage.isDisplayed()).isTrue();
+        //assertThat(landingPage.getText()).isEqualTo("Sample Application Lifecycle – Sprint 1");
+    }
     @AfterEach
     void tearDown() {
         driver.close();
