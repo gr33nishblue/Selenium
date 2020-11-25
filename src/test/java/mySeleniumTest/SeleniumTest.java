@@ -1,4 +1,4 @@
-package mySeleniumTests;
+package mySeleniumTest;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 public class SeleniumTest {
-    //todo: import this project into a git new project
+    //todo: import this project into a git new project - Project on github - https://github.com/gr33nishblue/Selenium
     //todo: create tests for all the pages in ultimateQA
     //TODO: provide Mihai Access to the project created in git
     //TODO: work with with branches per page so I could actually CR
@@ -37,7 +37,7 @@ public class SeleniumTest {
         driver.get("https://www.google.com/");
         WebElement hplogo = driver.findElement(By.id("hplogo"));
         assertThat(hplogo.isDisplayed()).isTrue();
-        driver.close();
+        //driver.close();
     }
 
     @Test
